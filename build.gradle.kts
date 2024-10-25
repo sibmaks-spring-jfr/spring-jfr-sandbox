@@ -5,8 +5,8 @@ plugins {
     id("java")
     id("jacoco")
     id("application")
-    id("org.springframework.boot") version "3.3.3"
-    id("io.spring.dependency-management") version "1.1.6"
+    alias(libs.plugins.spring.framework.boot)
+    alias(libs.plugins.spring.dependency.managment)
 }
 
 val versionFromProperty = "${project.property("version")}"
@@ -33,14 +33,14 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    implementation(fileTree("libs"))
+    implementation(libs.spring.jfr)
+
     implementation("org.springframework:spring-context")
     implementation("org.springframework:spring-core")
     implementation("org.springframework.data:spring-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     implementation("org.flywaydb:flyway-core")
     implementation("com.h2database:h2")
@@ -50,7 +50,6 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    implementation("org.apache.commons:commons-lang3")
 
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("jakarta.persistence:jakarta.persistence-api")
@@ -79,7 +78,6 @@ java {
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
-    withJavadocJar()
     withSourcesJar()
 }
 
@@ -93,7 +91,6 @@ tasks.jacocoTestReport {
 }
 
 tasks.jar {
-    dependsOn("copyFrontendResources")
     from("LICENSE") {
         rename { "${it}_${project.property("project_name")}" }
     }
@@ -101,7 +98,6 @@ tasks.jar {
         attributes(
             mapOf(
                 "Specification-Title" to project.name,
-                "Specification-Vendor" to project.property("author"),
                 "Specification-Version" to project.version,
                 "Specification-Timestamp" to SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(Date()),
                 "Timestamp" to System.currentTimeMillis(),

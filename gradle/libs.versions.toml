@@ -1,22 +1,10 @@
 [versions]
-spring-jfr = "0.0.2"
-spring = "5.3.37"
-spring-data = "2.7.18"
+spring-jfr = "0.0.6"
 spring-framework = "2.7.18"
 spring-dependency-managment = "1.1.6"
-junit-jupiter = "5.10.3"
-javax-servlet = "4.0.1"
 
 [libraries]
-
 spring-jfr = { module = "io.github.sibmaks.spring-jfr:agent", version.ref = "spring-jfr" }
-spring-aop = { module = "org.springframework:spring-aop", version.ref = "spring" }
-spring-aspects = { module = "org.springframework:spring-aspects", version.ref = "spring" }
-spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
-spring-web = { module = "org.springframework:spring-web", version.ref = "spring" }
-spring-jpa = { module = "org.springframework.data:spring-data-jpa", version.ref = "spring-data" }
-javax-servlet = { module = "javax.servlet:javax.servlet-api", version.ref = "javax-servlet" }
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 
 [plugins]
 spring-framework-boot = { id = "org.springframework.boot", version.ref = "spring-framework" }
