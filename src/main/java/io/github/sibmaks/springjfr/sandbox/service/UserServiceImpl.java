@@ -1,6 +1,6 @@
 package io.github.sibmaks.springjfr.sandbox.service;
 
-import io.github.sibmaks.springjfr.sandbox.dto.UserDto;
+import io.github.sibmaks.springjfr.sandbox.api.dto.UserDto;
 import io.github.sibmaks.springjfr.sandbox.entity.UserEntity;
 import io.github.sibmaks.springjfr.sandbox.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(String username, Long groupId) {
-        var groupEntity = groupService.getById(groupId);
+        var groupEntity = groupService.getEntityById(groupId);
 
         var creationDate = ZonedDateTime.now();
         var entity = UserEntity.builder()

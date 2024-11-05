@@ -1,7 +1,7 @@
 package io.github.sibmaks.springjfr.sandbox.controller;
 
-import io.github.sibmaks.springjfr.sandbox.api.CreateUserRq;
-import io.github.sibmaks.springjfr.sandbox.dto.UserDto;
+import io.github.sibmaks.springjfr.sandbox.api.rq.CreateUserRq;
+import io.github.sibmaks.springjfr.sandbox.api.dto.UserDto;
 import io.github.sibmaks.springjfr.sandbox.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

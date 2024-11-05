@@ -1,6 +1,6 @@
 package io.github.sibmaks.springjfr.sandbox.service;
 
-import io.github.sibmaks.springjfr.sandbox.dto.UserDto;
+import io.github.sibmaks.springjfr.sandbox.api.dto.UserDto;
 
 public interface UserService {
     boolean isUserExists(String username);

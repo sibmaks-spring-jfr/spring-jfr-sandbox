@@ -1,4 +1,4 @@
-package io.github.sibmaks.springjfr.sandbox.dto;
+package io.github.sibmaks.springjfr.sandbox.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.time.ZonedDateTime;
 
 /**
- * User API DTO
+ * Group API DTO
  *
  * @author sibmaks
  * @since 0.0.1
@@ -16,11 +16,9 @@ import java.time.ZonedDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
-public class UserDto {
+public class GroupDto {
     private final long id;
-    private final String username;
+    private final String code;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     private final ZonedDateTime createAt;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
-    private final ZonedDateTime modifiedAt;
 }

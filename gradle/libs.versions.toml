@@ -1,5 +1,5 @@
 [versions]
-spring-jfr = "0.0.8"
+spring-jfr = "0.0.8.2"
 spring-framework = "2.7.18"
 spring-dependency-managment = "1.1.6"
 

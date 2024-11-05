@@ -1,6 +1,6 @@
 package io.github.sibmaks.springjfr.sandbox.service;
 
-import io.github.sibmaks.springjfr.sandbox.dto.UserDto;
+import io.github.sibmaks.springjfr.sandbox.api.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;

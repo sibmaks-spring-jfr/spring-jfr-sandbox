@@ -1,4 +1,4 @@
-package io.github.sibmaks.springjfr.sandbox.api;
+package io.github.sibmaks.springjfr.sandbox.api.rq;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
