@@ -3,16 +3,24 @@ package io.github.sibmaks.springjfr.sandbox.service;
 import io.github.sibmaks.springjfr.sandbox.api.dto.GroupDto;
 import io.github.sibmaks.springjfr.sandbox.entity.GroupEntity;
 import io.github.sibmaks.springjfr.sandbox.repository.GroupRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@AllArgsConstructor
 public class GroupService {
     private final GroupRepository groupRepository;
+   /* private final GroupService groupService1;
+
+    public GroupService(
+            GroupRepository groupRepository,
+            @Qualifier("groupService")
+            GroupService groupService1) {
+        this.groupRepository = groupRepository;
+        this.groupService1 = groupService1;
+    }*/
 
     public GroupDto getById(long groupId) {
         var entity = getEntityById(groupId);
