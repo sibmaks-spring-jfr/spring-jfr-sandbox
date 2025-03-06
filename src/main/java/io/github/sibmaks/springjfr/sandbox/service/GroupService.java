@@ -4,9 +4,13 @@ import io.github.sibmaks.springjfr.sandbox.api.dto.GroupDto;
 import io.github.sibmaks.springjfr.sandbox.entity.GroupEntity;
 import io.github.sibmaks.springjfr.sandbox.repository.GroupRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 @Service
 @AllArgsConstructor
@@ -42,5 +46,13 @@ public class GroupService {
                 .createdAt(ZonedDateTime.now())
                 .build();
         groupRepository.save(entity);
+    }
+
+    @Async//("customThreadPool")
+    public Future<String> asyncExample() {
+        return CompletableFuture.supplyAsync(() -> {
+            System.out.println("Async");
+            return UUID.randomUUID().toString();
+        });
     }
 }

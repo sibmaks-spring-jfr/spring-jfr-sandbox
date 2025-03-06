@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping(path = "/controller/group")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -28,6 +30,11 @@ public class GroupController {
     )
     public void addGroup(@RequestBody CreateGroupRq rq) {
         groupService.create(rq.getCode());
+    }
+
+    @GetMapping(path = "/async")
+    public String async() throws ExecutionException, InterruptedException {
+        return groupService.asyncExample().get();
     }
 
 }
